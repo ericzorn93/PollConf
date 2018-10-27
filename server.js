@@ -8,6 +8,7 @@ const chalk = require("chalk");
 
 // Routing Imports
 const pollRoutes = require("./routes/pollRoutes");
+const answerRoutes = require("./routes/answerRoutes");
 
 // Init Express App
 const app = express();
@@ -21,6 +22,7 @@ const port = process.env.PORT || 3000;
 
 // Routing
 app.use("/poll", pollRoutes);
+app.use("/answer", answerRoutes);
 
 // Server Listen
 app.listen(port, () =>

@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 // Get routes
-router.get("/all-polls", (req, res) => {
+router.get("/all-answers", (req, res) => {
   res.json({
     success: true,
-    data: "Poll Routes"
+    data: "Answer Routes"
   });
 });
 
