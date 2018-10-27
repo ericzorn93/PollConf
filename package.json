@@ -1,0 +1,9 @@
+{
+  "name": "poll-conf",
+  "version": "1.0.0",
+  "description": "A quick live polling application to help with taking polls during conferences. This tool is open source and is an ongoing project at the moment",
+  "main": "server.js",
+  "author": "Eric Zorn",
+  "license": "MIT",
+  "private": false
+}
