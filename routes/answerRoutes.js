@@ -1,6 +1,7 @@
 /* Poll Routes */
 const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
 
 // Get routes
 router.get("/all-answers", (req, res) => {
