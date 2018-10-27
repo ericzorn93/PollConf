@@ -1,8 +1,10 @@
+// Imports
 const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
+const chalk = require("chalk");
 
 // Init Express App
 const app = express();
@@ -15,4 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const port = process.env.PORT || 3000;
 
 // Server Listen
-app.listen(port, () => console.log(`Server listening on port: ${port}`));
+app.listen(port, () =>
+  console.log(chalk.yellow.bgBlue.bold(`Server listening on port: ${port}`))
+);
