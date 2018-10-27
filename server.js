@@ -6,6 +6,9 @@ const mongoose = require("mongoose");
 const path = require("path");
 const chalk = require("chalk");
 
+// Routing Imports
+const pollRoutes = require("./routes/pollRoutes");
+
 // Init Express App
 const app = express();
 
@@ -15,6 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Port Setup
 const port = process.env.PORT || 3000;
+
+// Routing
+app.use("/poll", pollRoutes);
 
 // Server Listen
 app.listen(port, () =>
