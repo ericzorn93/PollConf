@@ -9,14 +9,19 @@ const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
 
 // Database Setup
+mongoose.connect(
+  `mongodb://${dbUsername}:${dbPassword}@ds143603.mlab.com:43603/poll-conf`
+);
 const Schema = mongoose.Schema;
 
 const pollSchema = new Schema({
   title: String,
   author: String,
   question: String,
-  created_at: moment(new Date()).format("MMMM Do YYYY, h:mm:ss a")
+  created_at: Date
 });
+
+const Poll = mongoose.model("Poll", pollSchema);
 
 // Get routes
 router.get("/all-polls", (req, res) => {
@@ -30,7 +35,7 @@ router.get("/all-polls", (req, res) => {
 router.post("/create-poll", (req, res) => {
   res.json({
     success: true,
-    data: "Sent"
+    data: "sent"
   });
 });
 
