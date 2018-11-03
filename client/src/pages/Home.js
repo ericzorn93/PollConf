@@ -24,6 +24,17 @@ class Home extends Component {
     this.setState({ pollAnswers: polls });
   };
 
+  addPost = e => {
+    e.preventDefault();
+    axios
+      .post(`/api/poll/`)
+      .then(() => {
+        console.log(this.props);
+        this.props.history.push("/");
+      })
+      .catch(err => console.log(err));
+  };
+
   render() {
     const { pollAnswers } = this.state;
 
@@ -31,6 +42,30 @@ class Home extends Component {
       return (
         <div className={"container"}>
           <h1>All Polls</h1>
+          <form onSubmit={this.addPost}>
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              ref={input => (this.title = input)}
+            />
+            <input
+              type="text"
+              name="author"
+              placeholder="Author"
+              ref={input => (this.author = input)}
+            />
+            <input
+              type="text"
+              name="question"
+              placeholder="Question"
+              ref={input => (this.question = input)}
+            />
+            <button>Add Item</button>
+          </form>
+
+          <br />
+
           <ul>
             {pollAnswers.map(poll => (
               <div key={poll._id}>
