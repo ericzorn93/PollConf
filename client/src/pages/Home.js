@@ -26,13 +26,28 @@ class Home extends Component {
 
   addPost = e => {
     e.preventDefault();
-    axios
-      .post(`/api/poll/`)
-      .then(() => {
-        console.log(this.props);
-        this.props.history.push("/");
-      })
-      .catch(err => console.log(err));
+    if (
+      this.title.value.length > 3 &&
+      this.author.value.length > 3 &&
+      this.question.value.length > 5
+    ) {
+      axios
+        .post(`/api/poll/`, {
+          title: this.title.value,
+          author: this.author.value,
+          question: this.question.value
+        })
+        .then(() => {
+          console.log(this.props);
+          this.props.history.go();
+        })
+        .catch(err => {
+          console.error(err);
+          console.log(this.title.value);
+        });
+    } else {
+      alert("Please fill in the proper inputs");
+    }
   };
 
   render() {
@@ -85,7 +100,32 @@ class Home extends Component {
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return (
+        <div className={"container"}>
+          <h1>No Items</h1>
+          <form onSubmit={this.addPost}>
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              ref={input => (this.title = input)}
+            />
+            <input
+              type="text"
+              name="author"
+              placeholder="Author"
+              ref={input => (this.author = input)}
+            />
+            <input
+              type="text"
+              name="question"
+              placeholder="Question"
+              ref={input => (this.question = input)}
+            />
+            <button>Add Item</button>
+          </form>
+        </div>
+      );
     }
   }
 }

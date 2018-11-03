@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Moment from "react-moment";
 import "moment-timezone";
-import { Link, Redirect } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 class PollAnswer extends Component {
   constructor(props) {
