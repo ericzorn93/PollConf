@@ -8,7 +8,7 @@ const chalk = require("chalk");
 const cors = require("cors");
 
 // Routing Imports
-const pollRoutes = require("./routes/pollRoutes");
+const pollRoutes = require("./routes/api/v1/pollRoutes");
 
 // Init Express App
 const app = express();
@@ -22,7 +22,7 @@ app.use(cors());
 const port = process.env.PORT || 3000;
 
 // Routing
-app.use("/poll", pollRoutes);
+app.use("/api/poll", pollRoutes);
 
 // Server Listen
 app.listen(port, () =>
