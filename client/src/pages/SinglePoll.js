@@ -22,6 +22,13 @@ class SinglePoll extends Component {
     this.setState({ post: data });
   };
 
+  deletePollItem = () => {
+    axios
+      .delete(`/api/poll/${this.props.match.params.id}`)
+      .then(() => this.props.history.push("/"))
+      .catch(err => console.log(err));
+  };
+
   render() {
     if (this.state.post !== {}) {
       return (
@@ -41,6 +48,7 @@ class SinglePoll extends Component {
             <Moment format={"M/D/YYYY"}>{this.state.post.updated_at}</Moment>
           </p>
           <Link to={"/"}>Back Home</Link>
+          <button onClick={this.deletePollItem}>Delete</button>
         </div>
       );
     } else {

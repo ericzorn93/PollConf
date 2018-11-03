@@ -1,24 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import Moment from "react-moment";
 import "moment-timezone";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import axios from "axios";
 
-const PollAnswer = props => {
-  return (
-    <React.Fragment>
-      <strong>Title: </strong>
-      <Link to={`/${props.id}`}>{props.title}</Link>
-      <br />
-      <strong>Author: </strong>
-      {props.author}
-      <br />
-      <strong>Message: </strong>
-      {props.message}
-      <br />
-      <strong>Updated At: </strong>
-      <Moment format="MM/DD/YYYY">{props.updated_at}</Moment>
-    </React.Fragment>
-  );
-};
+class PollAnswer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <strong>Title: </strong>
+        <Link to={`/${this.props.id}`}>{this.props.title}</Link>
+        <br />
+        <strong>Author: </strong>
+        {this.props.author}
+        <br />
+        <strong>Message: </strong>
+        {this.props.message}
+        <br />
+        <strong>Updated At: </strong>
+        <Moment format="MM/DD/YYYY">{this.props.updated_at}</Moment>
+      </React.Fragment>
+    );
+  }
+}
 
 export default PollAnswer;

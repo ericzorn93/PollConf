@@ -32,15 +32,15 @@ class Home extends Component {
         <div className={"container"}>
           <h1>All Polls</h1>
           <ul>
-            {pollAnswers.map(({ _id, title, author, message, updated_at }) => (
-              <div key={_id}>
+            {pollAnswers.map(poll => (
+              <div key={poll._id}>
                 <li>
                   <PollAnswer
-                    id={_id}
-                    title={title}
-                    author={author}
-                    message={message}
-                    updated_at={updated_at}
+                    id={poll._id}
+                    title={poll.title}
+                    author={poll.author}
+                    message={poll.message}
+                    updated_at={poll.updated_at}
                   />
                 </li>
                 <br />
