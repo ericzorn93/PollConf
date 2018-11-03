@@ -42,8 +42,8 @@ router.post("/", (req, res) => {
     title: req.body.title,
     author: req.body.author,
     question: req.body.question,
-    created_at: moment(new Date()).format(),
-    updated_at: moment(new Date()).format()
+    created_at: new Date(),
+    updated_at: new Date()
   });
 
   addPoll
@@ -60,6 +60,37 @@ router.post("/", (req, res) => {
         error: err
       })
     );
+});
+
+// Update Routes
+router.put("/:id", async (req, res) => {
+  const _id = req.params.id;
+
+  Poll.findByIdAndUpdate(
+    { _id: _id },
+    {
+      title: req.body.title,
+      author: req.body.author,
+      question: req.body.question,
+      updated_at: new Date()
+    },
+    {},
+    (err, doc) => {
+      if (err) {
+        res.json({
+          success: false,
+          message: "Document cannot be updated",
+          data: {}
+        });
+      } else {
+        res.json({
+          success: true,
+          message: "Document was updated",
+          data: doc
+        });
+      }
+    }
+  );
 });
 
 // Delete Routes
