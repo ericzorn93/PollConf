@@ -26,7 +26,6 @@ class Home extends Component {
 
   render() {
     const { pollAnswers } = this.state;
-    console.log(pollAnswers);
 
     if (pollAnswers.length && pollAnswers) {
       return (
@@ -37,6 +36,7 @@ class Home extends Component {
               <div key={_id}>
                 <li>
                   <PollAnswer
+                    id={_id}
                     title={title}
                     author={author}
                     message={message}

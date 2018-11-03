@@ -1,12 +1,13 @@
 import React from "react";
 import Moment from "react-moment";
 import "moment-timezone";
+import { Link } from "react-router-dom";
 
 const PollAnswer = props => {
   return (
     <React.Fragment>
       <strong>Title: </strong>
-      {props.title}
+      <Link to={`/${props.id}`}>{props.title}</Link>
       <br />
       <strong>Author: </strong>
       {props.author}

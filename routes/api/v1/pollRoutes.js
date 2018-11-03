@@ -36,6 +36,25 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  Poll.findById({ _id: id }, (err, doc) => {
+    if (err) {
+      res.json({
+        success: false,
+        message: "Document Not Found",
+        data: {}
+      });
+    } else {
+      res.json({
+        success: true,
+        message: "Document Found",
+        data: doc
+      });
+    }
+  });
+});
+
 // Post routes
 router.post("/", (req, res) => {
   const addPoll = new Poll({
