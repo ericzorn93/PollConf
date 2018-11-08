@@ -11,7 +11,7 @@ class Home extends Component {
     };
   }
 
-  componentWillMount = async () => {
+  async componentWillMount() {
     const pollResponse = await axios.get("/api/poll");
 
     // Get All Poll Data
@@ -22,7 +22,7 @@ class Home extends Component {
 
     // Load Polls to State
     this.setState({ pollAnswers: polls });
-  };
+  }
 
   addPost = e => {
     e.preventDefault();
@@ -89,7 +89,7 @@ class Home extends Component {
                     id={poll._id}
                     title={poll.title}
                     author={poll.author}
-                    message={poll.message}
+                    question={poll.question}
                     updated_at={poll.updated_at}
                   />
                 </li>

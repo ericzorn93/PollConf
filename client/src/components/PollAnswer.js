@@ -9,6 +9,10 @@ class PollAnswer extends Component {
     this.state = {};
   }
 
+  componentDidMoun() {
+    console.log("Poll", this.props.totalPoll);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -19,7 +23,7 @@ class PollAnswer extends Component {
         {this.props.author}
         <br />
         <strong>Message: </strong>
-        {this.props.message}
+        {this.props.question}
         <br />
         <strong>Updated At: </strong>
         <Moment format="MM/DD/YYYY">{this.props.updated_at}</Moment>
