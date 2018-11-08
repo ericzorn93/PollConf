@@ -104,19 +104,19 @@ class Home extends Component {
         <div className={"container"}>
           <h1>No Items</h1>
           <form onSubmit={this.addPost}>
-            <input
+            <StyledInput
               type="text"
               name="title"
               placeholder="Title"
               ref={input => (this.title = input)}
             />
-            <input
+            <StyledInput
               type="text"
               name="author"
               placeholder="Author"
               ref={input => (this.author = input)}
             />
-            <input
+            <StyledInput
               type="text"
               name="question"
               placeholder="Question"
@@ -129,5 +129,9 @@ class Home extends Component {
     }
   }
 }
+
+const StyledInput = styled.input`
+  background-color: red;
+`;
 
 export default Home;
