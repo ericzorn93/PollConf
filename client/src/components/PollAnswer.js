@@ -9,29 +9,35 @@ class PollAnswer extends Component {
     this.state = {};
   }
 
-  componentDidMoun() {
+  componentDidMount() {
     console.log("Poll", this.props.totalPoll);
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <strong>Title: </strong>
-        <Link to={`/${this.props.id}`}>{this.props.title}</Link>
-        <br />
-        <strong>Author: </strong>
-        {this.props.author}
-        <br />
-        <strong>Message: </strong>
-        {this.props.question}
-        <br />
-        <strong>Created At: </strong>
-        <Moment format="MM/DD/YYYY h:m:s">{this.props.created_at}</Moment>
-        <br/>
-        <strong>Updated At: </strong>
-        <Moment format="MM/DD/YYYY h:m:s">{this.props.updated_at}</Moment>
-      </React.Fragment>
-    );
+    const { id, title, author, question, created_at, updated_at } = this.props;
+
+    if(!id && !title && !author && !question && !created_at &&!updated_at) {
+        return <p>Loading...</p>;
+    } else {
+        return (
+            <React.Fragment>
+                <strong>Title: </strong>
+                <Link to={`/${id}`}>{title}</Link>
+                <br />
+                <strong>Author: </strong>
+                {author}
+                <br />
+                <strong>Message: </strong>
+                {question}
+                <br />
+                <strong>Created At: </strong>
+                <Moment format="MM/DD/YYYY h:m:s">{created_at}</Moment>
+                <br/>
+                <strong>Updated At: </strong>
+                <Moment format="MM/DD/YYYY h:m:s">{updated_at}</Moment>
+            </React.Fragment>
+        );
+    }
   }
 }
 

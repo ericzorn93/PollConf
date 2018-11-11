@@ -114,33 +114,7 @@ class Home extends Component {
       );
     } else {
       return (
-        <div className={"container"}>
-          <h1>No Items</h1>
-          <form onSubmit={this.addPost}>
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              className={inputClass}
-              ref={input => (this.title = input)}
-            />
-            <input
-              type="text"
-              name="author"
-              placeholder="Author"
-              className={inputClass}
-              ref={input => (this.author = input)}
-            />
-            <input
-              type="text"
-              name="question"
-              placeholder="Question"
-              className={inputClass}
-              ref={input => (this.question = input)}
-            />
-            <button>Add Item</button>
-          </form>
-        </div>
+        <p>Loading...</p>
       );
     }
   }
