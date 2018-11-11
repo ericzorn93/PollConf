@@ -25,8 +25,11 @@ class PollAnswer extends Component {
         <strong>Message: </strong>
         {this.props.question}
         <br />
+        <strong>Created At: </strong>
+        <Moment format="MM/DD/YYYY h:m:s">{this.props.created_at}</Moment>
+        <br/>
         <strong>Updated At: </strong>
-        <Moment format="MM/DD/YYYY">{this.props.updated_at}</Moment>
+        <Moment format="MM/DD/YYYY h:m:s">{this.props.updated_at}</Moment>
       </React.Fragment>
     );
   }

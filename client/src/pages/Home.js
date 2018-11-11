@@ -7,6 +7,10 @@ const inputClass = css`
   color: blue;
 `;
 
+const addItemButton = css`
+  background-color: green;
+`;
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -84,7 +88,7 @@ class Home extends Component {
               className={inputClass}
               ref={input => (this.question = input)}
             />
-            <button>Add Item</button>
+            <button className={`btn ${addItemButton}`}>Add Item</button>
           </form>
 
           <br />
@@ -98,6 +102,7 @@ class Home extends Component {
                     title={poll.title}
                     author={poll.author}
                     question={poll.question}
+                    created_at={poll.created_at}
                     updated_at={poll.updated_at}
                   />
                 </li>

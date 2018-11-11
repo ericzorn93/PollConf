@@ -3,6 +3,21 @@ import axios from "axios";
 import Moment from "react-moment";
 import "moment-timezone";
 import { Link } from "react-router-dom";
+import { css } from "emotion";
+
+const linkClass = css`
+    font-size: 15px;
+    font-weight: 700;
+    margin: 5px;
+`;
+
+const btnClass = css`
+    margin: 5px;
+`;
+
+const editButtonClass = css`
+    background-color: green;
+`;
 
 class SinglePoll extends Component {
   constructor(props) {
@@ -50,12 +65,16 @@ class SinglePoll extends Component {
             <strong>Question:</strong> {this.state.post.question}
           </h5>
           <p>
-            <strong>Updated At:</strong>{" "}
-            <Moment format={"M/D/YYYY"}>{this.state.post.updated_at}</Moment>
+            <strong>Created At:</strong>{" "}
+            <Moment format={"M/D/YYYY h:m:s"}>{this.state.post.created_at}</Moment>
           </p>
-          <Link to={"/"}>Back Home</Link>
-          <button onClick={this.deletePollItem}>Delete</button>
-          <button onClick={this.editPost}>Edit</button>
+          <p>
+            <strong>Updated At:</strong>{" "}
+            <Moment format={"M/D/YYYY h:m:s"}>{this.state.post.updated_at}</Moment>
+          </p>
+          <Link className={linkClass} to={"/"}>Back Home</Link>
+          <button className={`${btnClass} btn`} onClick={this.deletePollItem}>Delete</button>
+          <button className={`${btnClass} btn ${editButtonClass}`} onClick={this.editPost}>Edit</button>
         </div>
       );
     } else {
