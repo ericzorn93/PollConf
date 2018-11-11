@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PollAnswer from "../components/PollAnswer";
-import { css } from 'emotion';
+import { css } from "emotion";
 
 const inputClass = css`
   color: blue;
-`
+`;
 
 class Home extends Component {
   constructor(props) {
