@@ -29,6 +29,12 @@ class SinglePoll extends Component {
       .catch(err => console.log(err));
   };
 
+  editPost = () => {
+    const { match, history } = this.props;
+    const { id } = match.params;
+    history.push(`/edit/${id}`);
+  };
+
   render() {
     if (this.state.post !== {}) {
       return (
@@ -49,6 +55,7 @@ class SinglePoll extends Component {
           </p>
           <Link to={"/"}>Back Home</Link>
           <button onClick={this.deletePollItem}>Delete</button>
+          <button onClick={this.editPost}>Edit</button>
         </div>
       );
     } else {
