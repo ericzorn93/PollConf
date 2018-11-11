@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import PollAnswer from "../components/PollAnswer";
+import { css } from 'emotion';
+
+const inputClass = css`
+  color: blue;
+`
 
 class Home extends Component {
   constructor(props) {
@@ -62,18 +67,21 @@ class Home extends Component {
               type="text"
               name="title"
               placeholder="Title"
+              className={inputClass}
               ref={input => (this.title = input)}
             />
             <input
               type="text"
               name="author"
               placeholder="Author"
+              className={inputClass}
               ref={input => (this.author = input)}
             />
             <input
               type="text"
               name="question"
               placeholder="Question"
+              className={inputClass}
               ref={input => (this.question = input)}
             />
             <button>Add Item</button>
@@ -108,18 +116,21 @@ class Home extends Component {
               type="text"
               name="title"
               placeholder="Title"
+              className={inputClass}
               ref={input => (this.title = input)}
             />
             <input
               type="text"
               name="author"
               placeholder="Author"
+              className={inputClass}
               ref={input => (this.author = input)}
             />
             <input
               type="text"
               name="question"
               placeholder="Question"
+              className={inputClass}
               ref={input => (this.question = input)}
             />
             <button>Add Item</button>
