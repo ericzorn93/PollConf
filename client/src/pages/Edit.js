@@ -37,6 +37,13 @@ export class Edit extends Component {
     console.log("Form Submitted");
   };
 
+  handleInputChange = e => {
+    console.log(e.target.value);
+    this.setState({
+        [e.target.name]: e.target.value,
+    });
+  };
+
   render() {
     const { _id, title, author, question, created_at } = this.state;
 
@@ -47,12 +54,20 @@ export class Edit extends Component {
         <form onSubmit={this.handleEdit}>
           <div className="row">
             <label htmlFor="title">Title: </label>
-            <input id="title" type="text" className="validate" value={title} />
+            <input
+                id="title"
+                name={'title'}
+                onChange={this.handleInputChange}
+                type="text"
+                className="validate"
+                value={title} />
           </div>
           <div className="row">
             <label htmlFor="author">Author:</label>
             <input
               id="author"
+              name={'author'}
+              onChange={this.handleInputChange}
               type="text"
               className="validate"
               value={author}
@@ -62,6 +77,8 @@ export class Edit extends Component {
             <label htmlFor="question">Question:</label>
             <input
               id="question"
+              name={'question'}
+              onChange={this.handleInputChange}
               type="text"
               className="validate"
               value={question}
