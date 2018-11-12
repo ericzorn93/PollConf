@@ -48,6 +48,13 @@ class Home extends Component {
         })
         .then(() => {
           console.log(this.props);
+
+          // Fake Redirect
+          // this.props.history.push("/id");
+          // // Reload Homepage
+          // this.props.history.push("/");
+
+          // Reload Page
           this.props.history.go();
         })
         .catch(err => {
@@ -113,9 +120,7 @@ class Home extends Component {
         </div>
       );
     } else {
-      return (
-        <p>Loading...</p>
-      );
+      return <p>Loading...</p>;
     }
   }
 }

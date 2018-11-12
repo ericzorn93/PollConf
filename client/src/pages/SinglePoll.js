@@ -4,19 +4,20 @@ import Moment from "react-moment";
 import "moment-timezone";
 import { Link } from "react-router-dom";
 import { css } from "emotion";
+// import PropTypes from "prop-types";
 
 const linkClass = css`
-    font-size: 15px;
-    font-weight: 700;
-    margin: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 5px;
 `;
 
 const btnClass = css`
-    margin: 5px;
+  margin: 5px;
 `;
 
 const editButtonClass = css`
-    background-color: green;
+  background-color: green;
 `;
 
 class SinglePoll extends Component {
@@ -66,15 +67,28 @@ class SinglePoll extends Component {
           </h5>
           <p>
             <strong>Created At:</strong>{" "}
-            <Moment format={"M/D/YYYY h:m:s"}>{this.state.post.created_at}</Moment>
+            <Moment format={"M/D/YYYY h:m:s"}>
+              {this.state.post.created_at}
+            </Moment>
           </p>
           <p>
             <strong>Updated At:</strong>{" "}
-            <Moment format={"M/D/YYYY h:m:s"}>{this.state.post.updated_at}</Moment>
+            <Moment format={"M/D/YYYY h:m:s"}>
+              {this.state.post.updated_at}
+            </Moment>
           </p>
-          <Link className={linkClass} to={"/"}>Back Home</Link>
-          <button className={`${btnClass} btn`} onClick={this.deletePollItem}>Delete</button>
-          <button className={`${btnClass} btn ${editButtonClass}`} onClick={this.editPost}>Edit</button>
+          <Link className={linkClass} to={"/"}>
+            Back Home
+          </Link>
+          <button className={`${btnClass} btn`} onClick={this.deletePollItem}>
+            Delete
+          </button>
+          <button
+            className={`${btnClass} btn ${editButtonClass}`}
+            onClick={this.editPost}
+          >
+            Edit
+          </button>
         </div>
       );
     } else {
