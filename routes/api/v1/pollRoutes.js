@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const moment = require("moment");
 
 // Middlware and setup
-const dbUsername = process.env.DB_USERNAME || "zornwebdev";
-const dbPassword = process.env.DB_PASSWORD || "Baseball30!";
+const dbUsername = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
 
 // Database Setup
 mongoose.connect(

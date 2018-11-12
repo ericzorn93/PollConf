@@ -7,6 +7,9 @@ const path = require("path");
 const chalk = require("chalk");
 const cors = require("cors");
 
+// Allow Environment Variables
+require("dotenv").config();
+
 // Routing Imports
 const pollRoutes = require("./routes/api/v1/pollRoutes");
 

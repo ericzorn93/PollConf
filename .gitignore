@@ -1,2 +1,3 @@
 /node_modules
+# Stop Environment Variables from being shared
 .env
